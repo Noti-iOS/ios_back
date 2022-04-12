@@ -1,0 +1,35 @@
+spring:
+  datasource: # notidb
+    url: jdbc:mariadb://noti-db.cnvka3ioqpo5.ap-northeast-2.rds.amazonaws.com:3306/noti_db
+    username: admin #admin
+    password: 684qvv4eem #noti
+    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mysql://3.36.243.27:3306/noti?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+#      username: onusDB #admin
+#      password: onus2021 #noti
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  output:
+    ansi:
+      enabled: always
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        #        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+server:
+  port: 8080
+
+

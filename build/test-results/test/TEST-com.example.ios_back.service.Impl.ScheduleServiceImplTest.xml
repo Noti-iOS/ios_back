@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.ios_back.service.Impl.ScheduleServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-07T06:27:55" hostname="baeg-eunhuiui-MacBookPro.local" time="0.386">
+  <properties/>
+  <testcase name="년도와 월을 주면 그에 해당하는 객체리스트 반환" classname="com.example.ios_back.service.Impl.ScheduleServiceImplTest" time="0.386"/>
+  <system-out><![CDATA[?[2m2022-04-07 15:27:55.601?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.b.t.c.SpringBootTestContextBootstrapper?[0;39m ?[2m:?[0;39m Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.ios_back.service.Impl.ScheduleServiceImplTest], using SpringBootContextLoader
+?[2m2022-04-07 15:27:55.606?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.s.t.c.support.AbstractContextLoader   ?[0;39m ?[2m:?[0;39m Could not detect default resource locations for test class [com.example.ios_back.service.Impl.ScheduleServiceImplTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+?[2m2022-04-07 15:27:55.607?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mt.c.s.AnnotationConfigContextLoaderUtils?[0;39m ?[2m:?[0;39m Could not detect default configuration classes for test class [com.example.ios_back.service.Impl.ScheduleServiceImplTest]: ScheduleServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+?[2m2022-04-07 15:27:55.638?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.b.t.c.SpringBootTestContextBootstrapper?[0;39m ?[2m:?[0;39m Found @SpringBootConfiguration com.example.ios_back.IosBackApplication for test class com.example.ios_back.service.Impl.ScheduleServiceImplTest
+?[2m2022-04-07 15:27:55.645?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.b.t.c.SpringBootTestContextBootstrapper?[0;39m ?[2m:?[0;39m Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+?[2m2022-04-07 15:27:55.646?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.b.t.c.SpringBootTestContextBootstrapper?[0;39m ?[2m:?[0;39m Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@155cf9f6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@b7b26c6, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2db07651, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@718b9d56, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@36a59d8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@51751265, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f59f4e4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5295a774, org.springframework.test.context.event.EventPublishingTestExecutionListener@3e09067, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7a7f5c44, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4ab1693b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@35e0d91e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3204146d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3299e315, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7320bccc]
+?[2m2022-04-07 15:27:55.696?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.s.t.c.transaction.TransactionContext  ?[0;39m ?[2m:?[0;39m Began transaction (1) for test context [DefaultTestContext@66f88fd3 testClass = ScheduleServiceImplTest, testInstance = com.example.ios_back.service.Impl.ScheduleServiceImplTest@87cb1d8, testMethod = findAllScheduleByMonthTest@ScheduleServiceImplTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14d7a962 testClass = ScheduleServiceImplTest, locations = '{}', classes = '{class com.example.ios_back.IosBackApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@476b0ae6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@320de594, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2974f221, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@665df3c6, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@60641ec8, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@e3b3b2f], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@23d0f6be]; rollback [true]
+?[2m2022-04-07 15:27:55.782?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    select
+        next_val as id_val 
+    from
+        hibernate_sequence for update
+            
+?[2m2022-04-07 15:27:55.801?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    update
+        hibernate_sequence 
+    set
+        next_val= ? 
+    where
+        next_val=?
+?[2m2022-04-07 15:27:55.854?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    select
+        next_val as id_val 
+    from
+        hibernate_sequence for update
+            
+?[2m2022-04-07 15:27:55.861?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    update
+        hibernate_sequence 
+    set
+        next_val= ? 
+    where
+        next_val=?
+?[2m2022-04-07 15:27:55.888?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    select
+        next_val as id_val 
+    from
+        hibernate_sequence for update
+            
+?[2m2022-04-07 15:27:55.894?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    update
+        hibernate_sequence 
+    set
+        next_val= ? 
+    where
+        next_val=?
+?[2m2022-04-07 15:27:55.976?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    insert 
+    into
+        schedule
+        (date, schedule_id) 
+    values
+        (?, ?)
+?[2m2022-04-07 15:27:55.987?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    insert 
+    into
+        schedule
+        (date, schedule_id) 
+    values
+        (?, ?)
+?[2m2022-04-07 15:27:55.993?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    insert 
+    into
+        schedule
+        (date, schedule_id) 
+    values
+        (?, ?)
+?[2m2022-04-07 15:27:56.023?[0;39m ?[32mDEBUG?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.SQL                       ?[0;39m ?[2m:?[0;39m 
+    select
+        * 
+    from
+        schedule 
+    where
+        date like ?
+?[2m2022-04-07 15:27:56.055?[0;39m ?[32m INFO?[0;39m ?[35m4245?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.s.t.c.transaction.TransactionContext  ?[0;39m ?[2m:?[0;39m Rolled back transaction for test: [DefaultTestContext@66f88fd3 testClass = ScheduleServiceImplTest, testInstance = com.example.ios_back.service.Impl.ScheduleServiceImplTest@87cb1d8, testMethod = findAllScheduleByMonthTest@ScheduleServiceImplTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14d7a962 testClass = ScheduleServiceImplTest, locations = '{}', classes = '{class com.example.ios_back.IosBackApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@476b0ae6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@320de594, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2974f221, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@665df3c6, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@60641ec8, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@e3b3b2f], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
