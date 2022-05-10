@@ -30,4 +30,11 @@ public interface ScheduleService {
      * Schedule 객체 조회 - 년도-월
      */
     public List<Schedule> findAllScheduleByMonth(String year, String month);
+
+    /**
+     * 있으면 반환, 없으면 새로 생성
+     * @param localDate
+     * @return
+     */
+    public Schedule getSchedule(LocalDate localDate);
 }

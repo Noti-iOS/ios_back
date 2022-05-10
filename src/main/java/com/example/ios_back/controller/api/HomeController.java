@@ -28,7 +28,6 @@ public class HomeController {
 
     //TODO: 파라미터 통일
     //TODO: id값 받는 api 없애기
-    //TODO: 무중단배포
 
     private final ScheduleService scheduleService;
     private final SubjectService subjectService;
@@ -92,11 +91,14 @@ public class HomeController {
         scheduleService.storeSchedule(newSchedule);
     }
 
-    /*
-     * 과목 추가*/
+
+    /**
+     * 과목 추가
+     * @param form
+     */
     @PostMapping("/schedule/subject/new")
     public void addSubject(@RequestBody CreateSubjectForm form) {
-        Schedule schedule = scheduleService.findSchedule(LocalDate.parse(form.getDate()));
+        Schedule schedule = scheduleService.getSchedule(LocalDate.parse(form.getDate()));
         subjectService.addSubject(schedule.getId(), form.getSubjectName());
     }
 

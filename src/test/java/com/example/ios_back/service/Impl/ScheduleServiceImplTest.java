@@ -49,4 +49,37 @@ class ScheduleServiceImplTest {
 
     }
 
+    @Test
+    @DisplayName("기존 객체가 있으면 반환")
+    void getSchedule_기존객체_반환() {
+        //given
+        LocalDate date = LocalDate.of(2022, 3, 17);
+        Schedule schedule = Schedule.createSchedule(date);
+        Schedule save = scheduleRepository.save(schedule);
+        List<Schedule> before = scheduleRepository.findAll();
+
+        //when
+        LocalDate newDate = LocalDate.of(2022, 3, 17);
+        Schedule getSchedule = scheduleService.getSchedule(newDate);
+        List<Schedule> after = scheduleRepository.findAll();
+
+        //then
+        assertThat(save.getId()).isEqualTo(getSchedule.getId());
+        assertThat(before.size()).isEqualTo(after.size());
+    }
+
+    @Test
+    @DisplayName("기존 객체가 없으면 생성")
+    void getSchedule_객체_생성() {
+        //given
+        List<Schedule> all = scheduleRepository.findAll();
+
+        //when
+        Schedule schedule = scheduleService.getSchedule(LocalDate.of(2022, 4, 17));
+
+        //then
+        List<Schedule> newAll = scheduleRepository.findAll();
+        assertThat(all.size() + 1).isEqualTo(newAll.size());
+    }
+
 }
