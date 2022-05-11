@@ -33,12 +33,27 @@ public class MemoServiceImpl implements MemoService {
     @Override
     @Transactional
     public void saveMemo(Long scheduleId, String content) {
-        Optional<Schedule> optionalSchedule = scheduleRepository.findById(scheduleId);
-        Schedule schedule = optionalSchedule.orElseThrow(() -> new NoSuchElementException());
 
+        Optional<Schedule> optionalSchedule = scheduleRepository.findById(scheduleId);
+        Schedule schedule = optionalSchedule.orElseThrow(() -> new NoSuchElementException("해당 스케줄이 없습니다."));
         Memo memo = Memo.createMemo(schedule);
         memo.changeContent(content);
 
         memoRepository.save(memo);
     }
+
+    @Override
+    @Transactional
+    public void editMemo(Long scheduleId, String content) {
+        Optional<Schedule> optionalSchedule = scheduleRepository.findById(scheduleId);
+        Schedule schedule = optionalSchedule.orElseThrow(() -> new NoSuchElementException("해당 스케줄이 없습니다."));
+
+        Optional<Memo> optionalMemo = memoRepository.findBySchedule(schedule);
+        Memo memo = optionalMemo.orElseGet(() -> memoRepository.save(Memo.createMemo(schedule)));// 없으면 만들기
+
+        memo.changeContent(content);
+    }
+    //TODO: 메모 수정과 저장을 어떤 방식으로 진행?
+    //TODO: REFACTORING -> 스케줄 비어있는지 판단하는 메소드 따로 저장
+
 }

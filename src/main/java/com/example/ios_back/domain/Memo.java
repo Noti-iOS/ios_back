@@ -20,16 +20,17 @@ public class Memo {
 
     private String content;
 
+    protected Memo() {}
+
     //==생성 메소드==//
-    // TODO: 2022.02.07. memo-Schedule 연관관계 메서드 추가
     public static Memo createMemo(Schedule schedule) {
         Memo newMemo = new Memo();
-        newMemo.changeMemo(schedule);
+        newMemo.changeSchedule(schedule);
         return newMemo;
     }
 
     //==연관관계 메서드==//
-    public void changeMemo(Schedule schedule) {
+    public void changeSchedule(Schedule schedule) {
         this.schedule=schedule;
         this.schedule.setMemo(this);
     }

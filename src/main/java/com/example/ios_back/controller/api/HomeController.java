@@ -60,27 +60,6 @@ public class HomeController {
         return scheduleDtoV2;
     }
 
-    //TODO: 변수 파라미터 바꾸기 - ID로
-    @GetMapping("/schedule/date/{scheduleId}")
-    public ScheduleDtoV2 getScheduleById(@PathVariable Long scheduleId) {
-        ScheduleDtoV2 scheduleDtoV2 = new ScheduleDtoV2();
-
-        Optional<Schedule> scheduleOptional = scheduleRepository.findById(scheduleId);
-        Schedule schedule = scheduleOptional.orElseThrow(() -> new NoSuchElementException("해당 스케줄이 없습니다."));
-        List<Subject> subjectList = schedule.getSubjectList();
-
-        for (Subject subject : subjectList) {
-            List<HomeworkDTO> homeworkDTOList = subject.getHomeworkList().stream()
-                    .map(homework -> new HomeworkDTO(homework.getId(), homework.getName(), homework.isComplete()))
-                    .collect(Collectors.toList());
-            scheduleDtoV2.getTodo().add(new TodoDTO(new SubjectDTO(subject.getId(), subject.getName()), homeworkDTOList));
-        }
-
-        scheduleDtoV2.setMemo(new MemoDTO(schedule.getMemo().getId(), schedule.getMemo().getContent()));
-
-        return scheduleDtoV2;
-    }
-
     /*
      * 일정 추가*/
     //TODO: 2022.02.08. 과목 null 이면 생성X
@@ -107,8 +86,19 @@ public class HomeController {
     //TODO: 2022.02.08. 중복 처리
     @PostMapping("/schedule/memo/new")
     public void addMemo(@RequestBody CreateMemoForm form) {
-        Schedule schedule = scheduleService.findSchedule(LocalDate.parse(form.getDate()));
+        Schedule schedule = scheduleService.getSchedule(LocalDate.parse(form.getDate()));
         memoService.saveMemo(schedule.getId(), form.getContent());
+    }
+
+    //TODO: 수정 API url 바꾸기
+    /**
+     * 메모 수정
+     * @param form
+     */
+    @PostMapping("/schedule/memo/edit}")
+    public void editMemo(@RequestBody CreateMemoForm form) {
+        Schedule schedule = scheduleService.getSchedule(LocalDate.parse(form.getDate()));
+        memoService.editMemo(schedule.getId(), form.getContent());
     }
 
     /*
@@ -129,13 +119,6 @@ public class HomeController {
         homeworkService.modifyComplete(homeworkId);
     }
 
-    /*
-     * 일정 생성 - 과목추가, 메모추가 할 때 */
-    public boolean isEmptySchedule(LocalDate localDate) {
-        Optional<Schedule> optionalSchedule = scheduleRepository.findByDate(localDate);
-        boolean isEmpty = optionalSchedule.isEmpty();
-        return isEmpty;
-    }
 
     /*
      * 캘린더 조회 */

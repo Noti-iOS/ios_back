@@ -6,7 +6,7 @@ public interface MemoService {
     /*
      * 메모 수정
      * */
-
+    public void editMemo(Long scheduleId, String content);
     /*
      * 메모 조회
      * */
