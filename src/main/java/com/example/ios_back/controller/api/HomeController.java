@@ -62,12 +62,18 @@ public class HomeController {
 
     /*
      * 일정 추가*/
-    //TODO: 2022.02.08. 과목 null 이면 생성X
+    //TODO: 과목, 숙제, 메모 등을 설정하면 자동으로 Schedule 객체 생성
+    //TODO: 과목, 숙제, 메모 등을 삭제하면 자동으로 Schedule 객체 삭제되어야 하는 경우에 삭제
     @GetMapping("/schedule/date/new")
     public void addSchedule(@RequestParam String date) {
         LocalDate requestDate = LocalDate.parse(date);
-        Schedule newSchedule = Schedule.createSchedule(requestDate);
-        scheduleService.storeSchedule(newSchedule);
+        Optional<Schedule> optionalSchedule = scheduleRepository.findByDate(requestDate);
+        optionalSchedule
+                .ifPresentOrElse(schedule -> {},
+                () -> {
+                    Schedule newSchedule = Schedule.createSchedule(requestDate);
+                    scheduleService.storeSchedule(newSchedule);
+                });
     }
 
 
