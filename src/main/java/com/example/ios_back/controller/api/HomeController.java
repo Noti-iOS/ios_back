@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 public class HomeController {
 
     //TODO: 파라미터 통일
-    //TODO: id값 받는 api 없애기
 
     private final ScheduleService scheduleService;
     private final SubjectService subjectService;
