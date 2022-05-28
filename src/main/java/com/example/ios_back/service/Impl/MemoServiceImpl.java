@@ -25,7 +25,7 @@ public class MemoServiceImpl implements MemoService {
     @Override
     public Memo findMemo(Long scheduleId) {
         Optional<Schedule> optionalSchedule = scheduleRepository.findById(scheduleId);
-        Schedule schedule = optionalSchedule.orElseThrow(() -> new NoSuchElementException());
+        Schedule schedule = optionalSchedule.orElseThrow(NoSuchElementException::new);
 
         return schedule.getMemo();
     }

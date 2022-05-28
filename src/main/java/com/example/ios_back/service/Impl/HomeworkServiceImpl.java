@@ -27,7 +27,7 @@ public class HomeworkServiceImpl implements HomeworkService {
     @Transactional
     public Long addHomework(Long subjectId, String name) {
         Optional<Subject> optionalSubject = subjectRepository.findById(subjectId);
-        Subject subject = optionalSubject.orElseThrow(() -> new NoSuchElementException());
+        Subject subject = optionalSubject.orElseThrow(NoSuchElementException::new);
         Homework homework = Homework.createHomework(subject, "p.100-120");
 
         return homeworkRepository.save(homework).getId();

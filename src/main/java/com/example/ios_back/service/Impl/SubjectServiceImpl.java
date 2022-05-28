@@ -31,10 +31,9 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     @Transactional
     //TODO: 2022.02.08. 과목명 같은 경우 처리
-    //TODO: 2022.02.08. 매개변수 null 처리
     public Long addSubject(Long scheduleId, String name) {
         Optional<Schedule> optionalSchedule = scheduleRepository.findById(scheduleId);
-        Schedule schedule = optionalSchedule.orElseThrow(() -> new NoSuchElementException());
+        Schedule schedule = optionalSchedule.orElseThrow(NoSuchElementException::new);
         Subject subject = Subject.createSubject(schedule, name);
         Subject save = subjectRepository.save(subject);
         return save.getId();

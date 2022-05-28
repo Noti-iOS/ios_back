@@ -44,7 +44,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public List<Subject> findSubjects(Long scheduleId) {
         Optional<Schedule> optionalSchedule = scheduleRepository.findById(scheduleId);
-        Schedule schedule = optionalSchedule.orElseThrow(() -> new NoSuchElementException());
+        Schedule schedule = optionalSchedule.orElseThrow(NoSuchElementException::new);
         return schedule.getSubjectList();
     }
 
